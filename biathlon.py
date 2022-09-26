@@ -38,6 +38,19 @@ def hits(targets):
 	return len([t for t in targets if is_closed(t)])
 
 
+def target_to_string(target):
+	return "* " if not is_open(target) else "0 "
+
+
+def targets_to_string(targets):
+	return "".join([target_to_string(target) for target in targets])
+
+
+def view_targets(targets):
+	print(" ".join([str(n) for n in range(len(targets))]))
+	print(targets_to_string(targets))
+
+
 def splash():
 	print(splash_str)
 
@@ -64,3 +77,7 @@ for x in ts:
 ts = close_target(2, ts)
 print(ts)
 print(f"hits: {hits(ts)}")
+for target in ts:
+	print(target_to_string(target))
+print(targets_to_string(ts))
+view_targets(ts)
