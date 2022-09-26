@@ -49,7 +49,7 @@ def targets_to_string(targets):
 
 
 def view_targets(targets):
-	print(" ".join([str(n) for n in range(len(targets))]))
+	print(" ".join([str(n + 1) for n in range(len(targets))]))
 	print(targets_to_string(targets))
 
 
