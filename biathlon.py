@@ -1,5 +1,7 @@
 #!/usr/bin/env python3
 
+import random
+
 splash_str = """
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
               Biathlon
@@ -51,6 +53,21 @@ def view_targets(targets):
 	print(targets_to_string(targets))
 
 
+def random_hit():
+	return random.choice([True, False])
+
+
+def shoot(targets, target):
+	if random_hit():
+		if is_open(targets[target]):
+			close_target(target, targets)
+			return "Hit on open target"
+		else:
+			return "Hit on closed target"
+	else:
+		return "Miss"
+
+
 def splash():
 	print(splash_str)
 
@@ -81,3 +98,13 @@ for target in ts:
 	print(target_to_string(target))
 print(targets_to_string(ts))
 view_targets(ts)
+for i in range(10):
+	print(random_hit())
+
+print()
+ts = new_targets()
+for i in range(3):
+	for j in range(len(ts)):
+		print(shoot(ts, j))
+		view_targets(ts)
+		print()
