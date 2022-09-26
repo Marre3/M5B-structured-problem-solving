@@ -29,6 +29,11 @@ def new_targets():
 	return [open()] * 5
 
 
+def close_target(n, targets):
+	targets[n] = closed()
+	return targets
+
+
 def splash():
 	print(splash_str)
 
@@ -46,6 +51,10 @@ print(open())
 print(closed())
 print(is_open(open()))
 print(is_closed(open()))
-print(new_targets())
-for x in new_targets():
+ts = new_targets()
+print(ts)
+for x in ts:
 	print(is_open(x), is_closed(x))
+
+ts = close_target(2, ts)
+print(ts)
