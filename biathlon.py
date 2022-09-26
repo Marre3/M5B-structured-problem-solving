@@ -116,7 +116,18 @@ def main():
 						f'Invalid input string "{inp}", please enter a number '
 						'from 0 to 4 inclusive, or "exit" to exit the program'
 					)
-
+	targets_hit = hits(targets)
+	if targets_hit == 0:
+		exclamation_str = "??!"
+	elif targets_hit == 1:
+		exclamation_str = "..."
+	elif targets_hit == 2:
+		exclamation_str = "."
+	elif 2 < targets_hit <= 4:
+		exclamation_str = "!"
+	elif targets_hit == 5:
+		exclamation_str = "!!"
+	print(f"You hit {hits(targets)} target{get_plural_s(hits(targets))}{exclamation_str}")
 
 if __name__ == "__main__":
 	main()
