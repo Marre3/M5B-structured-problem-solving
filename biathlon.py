@@ -96,7 +96,10 @@ def main():
     view_targets(targets)
     while bullets_left:
         try:
-            inp = input(f"{bullets_left} bullet{get_plural_s(bullets_left)} left; where to shoot?: ")
+            inp = input(
+				f"{bullets_left} bullet{get_plural_s(bullets_left)}"
+				" left; where to shoot?: "
+			)
         except KeyboardInterrupt:
             print("Exiting!")
             sys.exit(1)
