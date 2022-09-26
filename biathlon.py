@@ -68,6 +68,18 @@ def shoot(targets, target):
 		return "Miss"
 
 
+def parse_target(string):
+	try:
+		x = int(string)
+	except ValueError:
+		return None
+	else:
+		if 0 < x <= 5:
+			return x - 1
+		else:
+			return None
+
+
 def splash():
 	print(splash_str)
 
@@ -108,3 +120,18 @@ for i in range(3):
 		print(shoot(ts, j))
 		view_targets(ts)
 		print()
+
+print(parse_target("0"))
+print(parse_target("1"))
+print(parse_target("2"))
+print(parse_target("3"))
+print(parse_target("4"))
+print(parse_target("5"))
+print(parse_target("6"))
+print(parse_target("-1"))
+print(parse_target("0.5"))
+print(parse_target("-123"))
+print(parse_target("3.14159"))
+print(parse_target("hej"))
+print(parse_target("abc123"))
+print(parse_target("0x4"))
